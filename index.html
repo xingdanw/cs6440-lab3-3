@@ -4,6 +4,11 @@
 <head>
   <link rel="stylesheet" href="./lib/css/styles.css">
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  <script src = "https://d3js.org/d3.v4.min.js"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
 </head>
 
 <body>
@@ -24,49 +29,77 @@
       <div class="main-overview">
         <div class="small-card">
           <div>Height</div>
-          <div class="ob-value" id="height">undefined</div>
+          <div class="inner-card" id="height"></div>
         </div>
         <div class="small-card">
           <div>Weight</div>
-          <div class="ob-value" id="weight">undefined</div>
+          <div class="inner-card" id="weight"></div>
         </div>
         <div class="small-card">
-          <div>Systolic Blood Pressure</div>
-          <div class="ob-value" id="sys">undefined</div>
+          <div>BMI</div>
+          <div class="inner-card" id="bmi"></div>
         </div>
         <div class="small-card">
-          <div>Diastolic Blood Pressure</div>
-          <div class="ob-value" id="dia">undefined</div>
+          <div>Blood Pressure</div>
+          <div id="bp"></div>
         </div>
         <div class="small-card">
-          <div>LDL</div>
-          <div class="ob-value" id="ldl">undefined</div>
+          <div>Cholesterol</div>
+          <div id="cholesterol"></div>
         </div>
         <div class="small-card">
-          <div>HDL</div>
-          <div class="ob-value" id="hdl">undefined</div>
+          <div>Triglycerides</div>
+          <div id="triglycerides"></div>
         </div>
       </div>
 
       <div class="big-card">
         <div class="card">
           <div class="title">
-            Add an Annotation for the Weight Observation
+            Is family history of early heart disease?
           </div>
-        <span>  <input class="annotation-box" id="annotation">
-          <button class="annotation-button" id="add">Add</button></span>
-          <div class="annotations">
-          Latest Annotation
-          <li id="note">No annotations</li>
+          <div >
+            <input type="radio" id="q1_yes" name="q1" value="no">Yes</input><br>
+            <input type="radio" id="q1_no" name="q1" value="yes">No</input>
           </div>
         </div>
 
         <div class="card">
           <div class="title">
-            Medication Requests
+            Is daily physical activity (walking) more than 30 min per day?
           </div>
-          <ul id="med_list"></ul>
+          <div >
+            <input type="radio" id="q2_yes" name="q2" value="no">Yes</input><br>
+            <input type="radio" id="q2_no" name="q2" value="yes">No</input>
+          </div>
         </div>
+
+        <div class="card">
+          <div class="title">
+            Cigarette/Tobacco smoking?
+          </div>
+          <div >
+            <input type="radio" id="q3_yes" name="q3" value="no">Yes</input><br>
+            <input type="radio" id="q3_no" name="q3" value="yes">No</input>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="title">
+            Alcohol consumption amount per day?
+          </div>
+          <div >
+            <input type="radio" id="q4_1" name="q4" value="1">No drink a day.</input><br>
+            <input type="radio" id="q4_2" name="q4" value="2">No more then 1 drink a day.</input><br>
+            <input type="radio" id="q4_3" name="q4" value="3">No more than 2 drinks a day.</input><br>
+            <input type="radio" id="q4_4" name="q4" value="4">More than 2 drinks a day.</input>
+          </div>
+        </div>
+
+        <span class="button_div"><button class="annotation-button" id="submit">Submit</button></span>
+
+        <!-- <div id="dialog" title="Your Result">
+        </div> -->
       </div>
 
     </main>
@@ -74,10 +107,11 @@
 
   <script src='./lib/js/fhir-client.js'></script>
   <script src="./lib/js/get-data.js"></script>
+  <script src="./lib/js/test.js"></script>
 
 
 
-  
+
 </body>
 
 </html>
